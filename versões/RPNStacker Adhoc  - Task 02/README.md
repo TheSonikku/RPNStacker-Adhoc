@@ -23,10 +23,18 @@ Colocando o(s) arquivo(s) com a(s) equação/equações na pasta input, basta mu
 ```File input = new File(".//input//<arquivo>");```
 
 do arquivo ```RPNStackerADHOC.java``` para o nome do arquivo que possui a equação desejada. Por _default_, os arquivos tem a extensão ```.stk```.
+
+Ademais, para ativar a opção _Scanning_, basta mudar o boolean scanning para ```true```. Caso contrário, mudar para ```false```.
   
 Após isso, basta compilar e executar o código. A saída terá um formato como o seguinte:
 
-<img src ="https://i.imgur.com/XO1W5Y2.png">
+Para entrada com caractere inválido, sem scanning:
+
+<img src ="https://i.imgur.com/ghOgy9o.png">
+
+Para entrada válida, com scanning:
+
+<img src = "https://i.imgur.com/maFwwqA.png">
   
 ## Inputs Predefinidos:
 
@@ -84,7 +92,7 @@ Foram colocados 5 arquivos iniciais para demonstrar o código. Seus nomes e equa
   
 \-
 
-**Calc5.stk** (Resultado = 49)
+**Calc5.stk** (Resultado = Error: Unexpected character: ^)
   
 4
   
