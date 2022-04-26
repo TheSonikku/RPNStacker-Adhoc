@@ -35,6 +35,8 @@ Para entrada com caractere inválido, sem scanning:
 Para entrada válida, com scanning:
 
 <img src = "https://i.imgur.com/maFwwqA.png">
+
+Note que, para o scanning ativo com caractere inválido, apenas será printado o erro, sem a lista de tokens.
   
 ## Inputs Predefinidos:
 

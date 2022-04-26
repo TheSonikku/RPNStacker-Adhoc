@@ -94,13 +94,13 @@ public class RPNStackerADHOC {
         else if (numCount - opCount < 1){
             System.out.println("Error: Operator without Number"); //Erro de ter mais operadores que entradas para eles
         }
-        else
+        else{
             System.out.println(inputList.get(0).lexeme); //Saída correta
-        
-        if(scanning == true){ //Print final para o scanning caso esteja ativado
-            System.out.println("");
-            for (int i = 0; i < tokenList.size(); i++)
-            System.out.println(tokenList.get(i).toString());
+            if(scanning == true){ //Print final para o scanning caso esteja ativado. Se for inválido, não printa
+                System.out.println("");
+                for (int i = 0; i < tokenList.size(); i++)
+                System.out.println(tokenList.get(i).toString());
+            }
         }
     }
 }
