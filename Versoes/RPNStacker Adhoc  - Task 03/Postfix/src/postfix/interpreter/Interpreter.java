@@ -16,6 +16,7 @@
 
 package postfix.interpreter;
 
+import postfix.lexer.Regex;
 import postfix.ast.Expr;
 import java.util.HashMap;
 
@@ -37,7 +38,24 @@ public class Interpreter implements Expr.Visitor<Integer> {
 
 	@Override
 	public Integer visitNumberExpr(Expr.Number expr) {
-		return Integer.parseInt(expr.value);
+		if (Regex.isNum(expr.value)){
+			return Integer.parseInt(expr.value);
+		}
+		else if(Regex.isID(expr.value)){
+			if (env.containsKey(expr.value)){
+				if (Regex.isNum(env.get(expr.value)))
+					return Integer.parseInt(env.get(expr.value));
+				else{
+					throw new InterpreterError("Variable has non-number value: " + expr.value);
+				}
+			}
+			else{
+				throw new InterpreterError("Non-initiated variable: " + expr.value);
+			}
+		}
+		else{
+			throw new InterpreterError(expr.value + "was not recognized as a number or variable");
+		}
 	}
 
 	@Override

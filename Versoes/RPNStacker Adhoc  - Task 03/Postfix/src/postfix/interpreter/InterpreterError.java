@@ -10,26 +10,20 @@
  * such as Forth, STOIC, PostScript, RPL and Joy.
  *  
  * Contributors: 
- *     Henrique Rebelo      initial design and implementation 
+ *     Henrique Rebelo        initial design and implementation 
+ *     Gabriel Ferreira Rocha edits for an interpreter error
  *     http://www.cin.ufpe.br/~hemr/
  * ******************************************************************/
 
-package postfix.lexer;
+package postfix.interpreter;
 
 /**
- * @author Henrique Rebelo
+ * @author Gabriel Ferreira Rocha
  */
-public enum TokenType {
+public class InterpreterError extends RuntimeException{
+	private static final long serialVersionUID = 1L;
 
-	// Literals.
-	NUM,
-
-	// Single-character tokens for operations.
-	MINUS, PLUS, SLASH, STAR,
-
-	//Variables/IDs
-	ID,
-	
-	EOF
-
+	public InterpreterError(String msg) {
+		super(msg);
+	}
 }

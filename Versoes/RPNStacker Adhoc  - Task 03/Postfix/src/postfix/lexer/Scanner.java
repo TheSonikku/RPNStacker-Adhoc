@@ -15,7 +15,6 @@
  * ******************************************************************/
 
 package postfix.lexer;
-import postfix.interpreter.Interpreter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +39,8 @@ public class Scanner {
 	 * @param program
 	 * @return the list of tokens
 	 */
-	public List<Token> scan(Interpreter interp) {
-		return this.scan(this.source, interp);
+	public List<Token> scan() {
+		return this.scan(this.source);
 	}
 	
 	/**
@@ -51,12 +50,12 @@ public class Scanner {
 	 * @param program
 	 * @return the list of tokens
 	 */
-	public List<Token> scan(String program, Interpreter interp) {
+	public List<Token> scan(String program) {
 		StringTokenizer tokenizer = new StringTokenizer(program, Token.TOKENIZER_DELIMITER); 
 		// processing each tokenized word
 		while (tokenizer.hasMoreElements()) {
 			String tokenStr = tokenizer.nextToken();
-			this.tokens.add(this.getToken(tokenStr, interp));
+			this.tokens.add(this.getToken(tokenStr));
 		}
 		this.tokens.add(new Token(TokenType.EOF, "")); // EOF
 		
@@ -67,7 +66,7 @@ public class Scanner {
 	// HELPERS METHODS
 	// -------------------------------------------------------------
 
-	private Token getToken(String token, Interpreter interp) {
+	private Token getToken(String token) {
 		Token ret = null;
 		if(Regex.isNum(token)) {
 			ret = new Token(TokenType.NUM, token);
@@ -75,17 +74,11 @@ public class Scanner {
 		else if(Regex.isOP(token)) {
 			ret = new Token(Regex.getOPTokenType(token), token);
 		}
-		else if(interp.env.get(token) != null){
-			String varToken = interp.env.get(token);
-			if(Regex.isNum(varToken)) {
-				ret = new Token(TokenType.NUM, varToken);
-			}
-			else {
-				throw new LexError("Unexpected character in variable: \"" + varToken + "\" in variable \"" + token + "\"");
-			}
+		else if(Regex.isID(token)){
+			ret = new Token(TokenType.ID, token);
 		}
 		else {
-			throw new LexError("Unexpected character: "+token);
+			throw new LexError("Unexpected character: " + token);
 		}
 		return ret;
 	}

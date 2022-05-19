@@ -28,6 +28,7 @@ public class Regex {
 	private static final String MINUS_REGEX = "(\\-)"; // for minus operation recognition
 	private static final String SLASH_REGEX = "(/)"; // for div operation recognition
 	private static final String STAR_REGEX = "(\\*)"; // for mult operation recognition
+	private static final String ID_REGEX = "^[a-zA-Z]+$"; // for ID recognition, only recognizes characters without spaces
 	
 	public static boolean isNum(String token) {
 		return token.matches(NUM_REGEX);
@@ -51,6 +52,10 @@ public class Regex {
 	
 	public static boolean isStar(String token) {
 		return token.matches(STAR_REGEX);
+	}
+
+	public static boolean isID(String token) {
+		return token.matches(ID_REGEX);
 	}
 	
 	/**

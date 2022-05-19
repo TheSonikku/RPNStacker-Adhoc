@@ -29,6 +29,7 @@ import java.util.HashMap;
 import postfix.ast.AstPrinter;
 import postfix.ast.Expr;
 import postfix.interpreter.Interpreter;
+import postfix.interpreter.InterpreterError;
 import postfix.lexer.LexError;
 import postfix.lexer.Scanner;
 import postfix.lexer.Token;
@@ -108,7 +109,7 @@ public class Postfix {
 
 			//End of variable section-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 			Scanner scanner = new Scanner(source);
-			List<Token> tokens = scanner.scan(interpreter);
+			List<Token> tokens = scanner.scan();
 
 			// debugging for tokens
 			if(debugging) {
@@ -128,6 +129,10 @@ public class Postfix {
 		}	
 		catch (ParserError e) {
 			error("Parser", e.getMessage());
+			hasError = true;
+		}	
+		catch (InterpreterError e) {
+			error("Interpreter", e.getMessage());
 			hasError = true;
 		}	
 	}

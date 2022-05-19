@@ -54,6 +54,10 @@ public class Parser {
 			if(this.match(TokenType.NUM)) {
 				this.stack.push(this.number());
 			}
+			// matching a variable
+			else if (this.match(TokenType.ID)){
+				this.stack.push(this.number());
+			}
 			// matching any of the operation tokens
 			else if(this.match(TokenType.PLUS, TokenType.MINUS, 
 					TokenType.SLASH, TokenType.STAR)) {
