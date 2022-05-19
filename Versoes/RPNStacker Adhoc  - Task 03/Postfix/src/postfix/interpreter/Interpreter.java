@@ -46,7 +46,7 @@ public class Interpreter implements Expr.Visitor<Integer> {
 				if (Regex.isNum(env.get(expr.value)))
 					return Integer.parseInt(env.get(expr.value));
 				else{
-					throw new InterpreterError("Variable has non-number value: " + expr.value);
+					throw new InterpreterError("Variable \"" + expr.value + "\" has non-number value: \"" + env.get(expr.value) + "\"");
 				}
 			}
 			else{
