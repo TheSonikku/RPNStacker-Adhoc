@@ -20,6 +20,6 @@ Assim, qualquer equação com a variável x deve resultar no erro "[Lex] Error: 
 
 Uma variável não-iniciada dará um simples erro de "Unexpected character".
 
-##Exemplo de Entradas
+## Exemplo de Entradas
 
 <img src="https://i.imgur.com/MTg530Z.png">
