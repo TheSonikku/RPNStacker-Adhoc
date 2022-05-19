@@ -12,11 +12,17 @@ As variáveis aceitas são apenas números naturais, **não aceitando outra vari
 
 O projeto já é carregado com três variáveis iniciais:
 
-x, com valor "+"
-y, com valor "10"
-z, com valor "y"
+- **x**, com valor "+"
+- **y**, com valor "10"
+- **z**, com valor "y"
 
-Assim, qualquer equação com a variável x deve resultar no erro "[Lex] Error: Unexpected character in variable: "+" in variable "x"", e qualquer equação com a variável "[Lex] Error: Unexpected character in variable: "y" in variable "z"".
+Assim, qualquer equação com a variável **x** deve resultar no erro
+
+- "[Lex] Error: Unexpected character in variable: "+" in variable "x"", 
+
+e qualquer equação com a variável **z** deve resultar no erro
+
+- "[Lex] Error: Unexpected character in variable: "y" in variable "z"".
 
 Uma variável não-iniciada dará um simples erro de "Unexpected character".
 
