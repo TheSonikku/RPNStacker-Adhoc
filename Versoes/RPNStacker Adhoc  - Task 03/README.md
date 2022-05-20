@@ -1,4 +1,4 @@
-# RPNStacker Adhoc
+# RPNStacker Adhoc / Postfix
 
 Task 03 da cadeira de Compiladores 2021.2, realizada por Gabriel Ferreira Rocha
 
